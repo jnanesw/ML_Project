@@ -1,8 +1,8 @@
 from typing import List
-from setuptools import setup
+from setuptools import setup,find_packages
 def get_requirements_list() ->List[str]:
     with open("requirements.txt") as requirement_file:
-        return requirement_file.readlines()
+        return requirement_file.readlines().remove("-e .")
 
 NAME ="Housing predictor"
 VERSION = "0.0.1"
@@ -14,7 +14,7 @@ setup(
     version=VERSION,
     author=AUTHOR,
     description=DESCRIPTION,
-    packages=["housing"],
+    packages=find_packages(),
     install_requires = get_requirements_list()
 )
 
