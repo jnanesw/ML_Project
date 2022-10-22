@@ -98,7 +98,7 @@ class DataIngestion:
 
             if(strat_test_set is not None):
                 os.makedirs(self.data_ingestion_config.ingested_test_dir,exist_ok=True)
-                logging.ingo(f"Exporting testing dataset to file: [{test_file_path}]")
+                logging.info(f"Exporting testing dataset to file: [{test_file_path}]")
                 strat_test_set.to_csv(test_file_path,index=False)
             
             data_ingestion_artifact = DataIngestionArtifact(
@@ -123,5 +123,5 @@ class DataIngestion:
             raise HousingException(e,sys) from e
 
     def __del__(self):
-        logging.inf(f"{'>>'*20} Data Ingestion log completed {'<<'*20} \n\n")
+        logging.info(f"{'>>'*20} Data Ingestion log completed {'<<'*20} \n\n")
 
